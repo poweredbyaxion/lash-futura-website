@@ -13,11 +13,28 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder for actual form submission logic (e.g., Formspree)
-    alert('Thank you for reaching out! We will get back to you shortly.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    
+    // IMPORTANT: Replace "YOUR_FORMSPREE_ID" with your actual Formspree endpoint ID
+    const formspreeEndpoint = 'https://formspree.io/f/meedebyz';
+    
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        alert('Thank you for reaching out! Your message has been sent to the owner.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert('Oops! Please replace the Formspree ID in the code before submitting.');
+      }
+    } catch (error) {
+      alert('Network error. Please try again later.');
+    }
   };
 
   return (

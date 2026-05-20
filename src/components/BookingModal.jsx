@@ -9,6 +9,13 @@ const BookingModal = ({ isOpen, onClose }) => {
       <div className="modal-content ghl-modal animate-fade-in" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>&times;</button>
         
+        {/* Safety Net Fallback Message (Behind the iframe) */}
+        <div className="ghl-fallback">
+          <h3>Loading Calendar...</h3>
+          <p>If the calendar doesn't load or if you have an ad-blocker on, you can book securely below.</p>
+          <a href="https://squareup.com/appointments/book/0v2i4j667ase9t/L88F5TGCMWV1E/start" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book Directly on Square</a>
+        </div>
+
         {/* Square Appointments Embed Code */}
         <div className="ghl-iframe-container" style={{ WebkitOverflowScrolling: 'touch' }}>
           <iframe
