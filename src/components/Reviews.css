@@ -1,0 +1,36 @@
+.reviews {
+  background-color: rgba(255, 245, 248, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.review-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.review-name {
+  font-weight: 600;
+  color: var(--accent-color);
+}
